@@ -82,6 +82,14 @@ strong { color: var(--texto); font-weight: 600; }
 }
 .topo-cta svg { width: 19px; height: 19px; }
 
+/* Celular: sem botão de orçamento no topo, logo maior e centralizada */
+@media (max-width: 699.98px) {
+  :root { --topo-h: 84px; }
+  .topo { justify-content: center; }
+  .topo-cta { display: none; }
+  .marca-logo { width: 236px; }
+}
+
 /* ── Abertura cinematográfica ──────────────────────────────────────────── */
 .cine { position: relative; height: 300vh; }
 @media (min-width: 700px) { .cine { height: 380vh; } }
