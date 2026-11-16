@@ -113,10 +113,60 @@
     padrao: (S.whatsapp && S.whatsapp.mensagem) || "Olá! Quero um orçamento de mesas e cadeiras.",
     bairro: "Olá, LOCMESAS! Quero saber se vocês entregam no local da minha festa.\n\nBairro/cidade: \nData do evento: \nNº de convidados: ",
   };
-  document.querySelectorAll("a.wa").forEach((a) => {
-    const txt = mensagens[a.dataset.msg] || mensagens.padrao;
+  // Catálogo: cada produto abre o WhatsApp já dizendo o que o cliente quer
+  const pedido = (item) => `Olá, LOCMESAS! Vi no catálogo e quero alugar ${item}.
+
+Quantidade: 
+Data do evento: 
+Bairro/cidade: `;
+  mensagens.jogo = pedido("jogos de mesa (mesa quadrada + 4 cadeiras pretas)");
+  mensagens.mesa = pedido("mesas quadradas avulsas (só a mesa)");
+  mensagens.cadeira = pedido("cadeiras avulsas");
+  const linkWa = (a) => {
+    let txt = mensagens[a.dataset.msg] || mensagens.padrao;
+    if (a.dataset.msg === "forro") {
+      const cor = a.closest(".produto")?.querySelector(".cor.ativa")?.dataset.nome || "";
+      txt = pedido(`forros de mesa${cor ? ` na cor ${cor.toLowerCase()}` : ""}`);
+    }
     a.href = `https://wa.me/${num}?text=${encodeURIComponent(txt)}`;
+  };
+  document.querySelectorAll("a.wa").forEach(linkWa);
+
+  /* ── Catálogo: escolher a cor do forro troca a foto ──────────────────── */
+  document.querySelectorAll('.produto[data-produto="forro"]').forEach((card) => {
+    const foto = card.querySelector(".produto-foto img");
+    const nome = card.querySelector("[data-cor-nome]");
+    const botoes = [...card.querySelectorAll(".cor")];
+    const src = (cor) => `assets/catalogo/forro-${cor}.webp`;
+    // Pré-carrega as cores quando o cartão chega perto da tela
+    new IntersectionObserver((es, o) => {
+      if (es[0].isIntersecting) { botoes.forEach((b) => (new Image().src = src(b.dataset.cor))); o.disconnect(); }
+    }, { rootMargin: "400px" }).observe(card);
+    botoes.forEach((b) => b.addEventListener("click", () => {
+      if (b.classList.contains("ativa")) return;
+      botoes.forEach((x) => { x.classList.toggle("ativa", x === b); x.setAttribute("aria-pressed", x === b); });
+      nome.textContent = b.dataset.nome;
+      foto.classList.add("trocando");
+      setTimeout(() => {
+        foto.src = src(b.dataset.cor);
+        foto.alt = `Mesa com forro de cetim ${b.dataset.nome.toLowerCase()}`;
+        foto.onload = () => foto.classList.remove("trocando");
+        if (foto.complete) foto.classList.remove("trocando");
+      }, 250);
+      linkWa(card.querySelector("a.wa"));
+    }));
   });
+
+  /* Onda ao tocar nos botões do catálogo */
+  document.querySelectorAll(".botao--catalogo").forEach((b) => b.addEventListener("pointerdown", (e) => {
+    const r = b.getBoundingClientRect();
+    const o = document.createElement("span");
+    const t = Math.max(r.width, r.height) / 2;
+    o.className = "onda";
+    o.style.cssText = `width:${t}px;height:${t}px;left:${e.clientX - r.left - t / 2}px;top:${e.clientY - r.top - t / 2}px`;
+    b.appendChild(o);
+    setTimeout(() => o.remove(), 650);
+  }));
 
   /* ── Topo, botão flutuante, revelar e ano ─────────────────────────────── */
   const topo = document.querySelector(".topo");

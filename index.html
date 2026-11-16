@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/logo-480.webp">
-  <link rel="stylesheet" href="estilo.css?v=4">
+  <link rel="stylesheet" href="estilo.css?v=5">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -57,6 +57,7 @@
   </a>
   <nav class="menu" aria-label="Seções">
     <a href="#servicos">Serviços</a>
+    <a href="#catalogo">Catálogo</a>
     <a href="#eventos">Eventos</a>
     <a href="#como-funciona">Como funciona</a>
     <a href="#duvidas">Dúvidas</a>
@@ -150,6 +151,82 @@
     <a class="botao wa revelar" data-msg="padrao" href="https://wa.me/5562993367367" target="_blank" rel="noopener">
       <svg aria-hidden="true"><use href="#i-wa"/></svg>Consultar valores e disponibilidade
     </a>
+  </section>
+
+  <!-- ═══ CATÁLOGO ═══ -->
+  <section id="catalogo" class="secao secao--larga catalogo">
+    <div class="cabecalho revelar">
+      <p class="sobretitulo">Catálogo</p>
+      <h2>Escolha o que <span class="ouro">sua festa precisa</span></h2>
+      <p class="catalogo-intro">Alugue o jogo completo ou só as peças que faltam, na quantidade que quiser. Preço por diária de 24 horas.</p>
+    </div>
+    <div class="produtos">
+      <article class="produto produto--destaque revelar" data-produto="jogo">
+        <div class="produto-foto">
+          <img src="assets/catalogo/jogo.webp" alt="Jogo de mesa quadrada preta com 4 cadeiras pretas" width="720" height="720" loading="lazy" decoding="async">
+          <span class="produto-selo">Mais pedido</span>
+        </div>
+        <div class="produto-corpo">
+          <h3>Jogo de mesa + 4 cadeiras</h3>
+          <p class="produto-sub">Mesa quadrada e cadeiras bistrô de plástico</p>
+          <p class="produto-preco"><small>R$</small>15,00<span>/ jogo</span></p>
+          <a class="botao wa botao--catalogo" data-msg="jogo" href="https://wa.me/5562993367367" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg><span>Alugar<span class="wa-txt"> no WhatsApp</span></span>
+        </a>
+        </div>
+      </article>
+      <article class="produto revelar" data-produto="mesa">
+        <div class="produto-foto">
+          <img src="assets/catalogo/mesa.webp" alt="Mesa quadrada de plástico preta" width="720" height="720" loading="lazy" decoding="async">
+          <span class="produto-selo">Preto</span>
+        </div>
+        <div class="produto-corpo">
+          <h3>Mesa quadrada avulsa</h3>
+          <p class="produto-sub">Só a mesa, sem cadeiras</p>
+          <p class="produto-preco"><small>R$</small>10,00<span>/ unidade</span></p>
+          <a class="botao wa botao--catalogo" data-msg="mesa" href="https://wa.me/5562993367367" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg><span>Alugar<span class="wa-txt"> no WhatsApp</span></span>
+        </a>
+        </div>
+      </article>
+      <article class="produto revelar" data-produto="cadeira">
+        <div class="produto-foto">
+          <img src="assets/catalogo/cadeira.webp" alt="Cadeira bistrô de plástico preta" width="720" height="720" loading="lazy" decoding="async">
+          <span class="produto-selo">Preto</span>
+        </div>
+        <div class="produto-corpo">
+          <h3>Cadeira avulsa</h3>
+          <p class="produto-sub">Bistrô de plástico, encosto alto</p>
+          <p class="produto-preco"><small>R$</small>3,50<span>/ unidade</span></p>
+          <a class="botao wa botao--catalogo" data-msg="cadeira" href="https://wa.me/5562993367367" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg><span>Alugar<span class="wa-txt"> no WhatsApp</span></span>
+        </a>
+        </div>
+      </article>
+      <article class="produto revelar" data-produto="forro">
+        <div class="produto-foto">
+          <img src="assets/catalogo/forro-dourado.webp" alt="Mesa com forro de cetim dourado" width="720" height="720" loading="lazy" decoding="async">
+          <span class="produto-selo">5 cores</span>
+        </div>
+        <div class="produto-corpo">
+          <h3>Forro de mesa</h3>
+          <p class="produto-sub">Cetim, cobre uma mesa quadrada</p>
+          <div class="cores" role="group" aria-label="Escolha a cor do forro">
+            <button type="button" class="cor ativa" data-cor="dourado" data-nome="Dourado" style="--cor:#d9a21c" aria-pressed="true" aria-label="Forro Dourado"></button>
+            <button type="button" class="cor" data-cor="branco" data-nome="Branco" style="--cor:#f5f5f2" aria-pressed="false" aria-label="Forro Branco"></button>
+            <button type="button" class="cor" data-cor="preto" data-nome="Preto" style="--cor:#151515" aria-pressed="false" aria-label="Forro Preto"></button>
+            <button type="button" class="cor" data-cor="avela" data-nome="Avelã" style="--cor:#cdb08a" aria-pressed="false" aria-label="Forro Avelã"></button>
+            <button type="button" class="cor" data-cor="prata" data-nome="Prata" style="--cor:#b9bcc0" aria-pressed="false" aria-label="Forro Prata"></button>
+          </div>
+          <p class="cor-escolhida">Cor: <strong data-cor-nome>Dourado</strong></p>
+          <p class="produto-preco"><small>R$</small>5,00<span>/ unidade</span></p>
+          <a class="botao wa botao--catalogo" data-msg="forro" href="https://wa.me/5562993367367" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg><span>Alugar<span class="wa-txt"> no WhatsApp</span></span>
+        </a>
+        </div>
+      </article>
+    </div>
+    <p class="catalogo-nota">Taxa de entrega: R$ 35,00 por pedido. A retirada é por nossa conta. <span>Fotos ilustrativas.</span></p>
   </section>
 
   <!-- ═══ EVENTOS ═══ -->
@@ -327,6 +404,6 @@
 </a>
 
 <script src="config.js?v=6"></script>
-<script src="app.js?v=6"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>
