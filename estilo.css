@@ -457,3 +457,15 @@ strong { color: var(--texto); font-weight: 600; }
   .wa-txt { display: none; }
 }
 @media (min-width: 1000px) and (max-width: 1199.98px) { .wa-txt { display: none; } }
+
+/* Estrelinhas de avaliação (brilham uma de cada vez) */
+.produto-estrelas { display: flex; justify-content: center; gap: 5px; margin: auto 0 10px; }
+.produto-estrelas svg { width: 19px; height: 19px; fill: #fbbf24; filter: drop-shadow(0 0 6px rgb(251 191 36 / .45)); animation: estrela 3.2s ease-in-out infinite; }
+.produto-estrelas svg:nth-child(2) { animation-delay: .15s; }
+.produto-estrelas svg:nth-child(3) { animation-delay: .3s; }
+.produto-estrelas svg:nth-child(4) { animation-delay: .45s; }
+.produto-estrelas svg:nth-child(5) { animation-delay: .6s; }
+@keyframes estrela { 0%, 70%, 100% { transform: scale(1); } 78% { transform: scale(1.25) rotate(8deg); filter: drop-shadow(0 0 10px rgb(251 191 36 / .9)); } }
+.produto-estrelas + .produto-preco { margin-top: 0; }
+@media (max-width: 559.98px) { .produto-estrelas { gap: 3px; margin-bottom: 8px; } .produto-estrelas svg { width: 14px; height: 14px; } }
+@media (prefers-reduced-motion: reduce) { .produto-estrelas svg { animation: none !important; } }
