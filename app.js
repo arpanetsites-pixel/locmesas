@@ -149,7 +149,7 @@ Bairro/cidade: `;
       foto.classList.add("trocando");
       setTimeout(() => {
         foto.src = src(b.dataset.cor);
-        foto.alt = `Mesa com forro de cetim ${b.dataset.nome.toLowerCase()}`;
+        foto.alt = `Mesa com forro Oxford ${b.dataset.nome.toLowerCase()}`;
         foto.onload = () => foto.classList.remove("trocando");
         if (foto.complete) foto.classList.remove("trocando");
       }, 250);
