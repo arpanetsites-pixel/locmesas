@@ -2,7 +2,7 @@ window.SITE = {
   nome: "LOCMESAS Locações",
 
   whatsapp: {
-    numero: "5562999336736", // só dígitos, com DDI
+    numero: "5562993367367", // só dígitos, com DDI
     // Mensagem padrão: já pede os 3 dados que agilizam o orçamento
     mensagem: "Olá, LOCMESAS! Quero um orçamento de mesas e cadeiras.\n\nData do evento: \nBairro/cidade: \nNº de convidados: ",
   },

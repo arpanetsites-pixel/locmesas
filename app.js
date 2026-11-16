@@ -108,7 +108,7 @@
   }
 
   /* ── Links de WhatsApp (todos os botões) ─────────────────────────────── */
-  const num = String((S.whatsapp && S.whatsapp.numero) || "5562999336736").replace(/\D/g, "");
+  const num = String((S.whatsapp && S.whatsapp.numero) || "5562993367367").replace(/\D/g, "");
   const mensagens = {
     padrao: (S.whatsapp && S.whatsapp.mensagem) || "Olá! Quero um orçamento de mesas e cadeiras.",
     bairro: "Olá, LOCMESAS! Quero saber se vocês entregam no local da minha festa.\n\nBairro/cidade: \nData do evento: \nNº de convidados: ",
